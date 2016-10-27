@@ -1,0 +1,4 @@
+Permissions: tiddlySaver
+Codebase: myserver.com
+Application-Name: tiddlySaver
+Caller-Allowable-Codebase

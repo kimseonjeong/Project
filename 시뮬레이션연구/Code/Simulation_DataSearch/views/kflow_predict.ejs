@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>No Data</title>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  </head>
+
+  <body>
+    
+    <h1>기수행된 결과가 없습니다</h1>
+    <p>
+
+      <h2><%=name%> 시뮬레이션 데이터 예측</h2>
+
+      <form id="kflow_predict" action="/kflow_predict" method="get" onClick = "onbtnPredict()"  >
+
+      <table width = "400">
+
+      <tr>
+
+        <th>예측하시겠습니까?</th>
+
+      <td colspan="2">
+
+        <div style="text-align:right;">
+
+          <input type="submit" id="btnPredict" name="predict" value="예측" onClick = "onBtnPredict();" > 
+
+          <input type="reset" name="cancel" value="취소" onClick="javascript:history.back(-1)" >
+
+        </div>
+
+      </td>
+
+      </tr>
+
+      </table>
+      
+    </form>
+
+    
+  </body>
+</html>

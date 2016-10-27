@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Kflow Result</title>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  </head>
+
+  <body>
+
+    <h1><%=name%> 수행결과 화면</h1>
+
+    <p>
+
+      <h2>Aerodynamic Data</h2>
+
+      <table width = "500">
+
+    <% for(var i=0; i<5; i++){
+      %><tr>
+            <th><%=outputarray[i]%></th>
+          <td align = "center"><%=items_array[i]%></td>
+        </tr><% 
+    }%>
+
+       
+      </table>
+      <p>
+
+        <hr>
+
+        <h2>Field Data</h2>
+
+        <table>
+
+          <% for(var i=5; i<21; i++){
+            %><tr>
+            <td><a href = "/download?path=<%=items_array[i]%>"><%=outputarray[i]%></td>
+            </tr><%
+          }%>
+          
+        </table>
+
+        <hr>
+
+        <h2>Surface Data</h2>
+
+        <table>
+
+          <% for(var i=21; i<outputarray.length; i++){
+            %><tr>
+            <td><a href = "/download?path=<%=items_array[i]%>"><%=outputarray[i]%></td>
+            </tr><%
+          }%>
+          
+        </table>
+        
+
+  </body>
+  
+</html>

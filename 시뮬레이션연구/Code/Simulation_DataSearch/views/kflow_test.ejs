@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prediction Result</title>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  </head>
+
+  <body>
+
+  	<h1><%=name%> 예측 데이터 결과 화면</h1>
+
+    <table width = "500">
+
+    <% for(var i=0; i<standard.length-3; i++){
+      %><tr>
+      		<th><%=outputarray[i]%></th>
+            <td align = "left"><%=standard[i]%></td>
+        </tr><% 
+    }%>
+
+
+<tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr>
+</table>
+<hr/>
+
+<table>
+
+
+	<tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr>
+
+    <% for(var i=5; i<standard.length; i++){
+      %><tr><%=standard[i]%></td>
+        </tr><% 
+    }%>
+
+</table>
+
+
+  </body>
+</html>

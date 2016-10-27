@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/jquery-2.2.3.min.js"></script>
+  </head>
+  <body>
+
+    <h1><%= title %></h1>
+    
+    <h2><img src="https://imwiththebrands.files.wordpress.com/2015/04/check-file-glyph-icon_fkpsbt8d.jpg?w=450&h=378" width="20" height="20"/>
+        수행을 원하는 시뮬레이션 프로그램을 선택해주세요<h2>
+
+    <p>
+    <HR>
+    <p>
+
+    <form id="home" action="/home" method="post">
+
+        <table width="700" border="1" style="border-collapse:collapse;" valign="center">
+
+            <tr>
+                <th><img src="http://203.252.195.160:3000/images/CFD.png" align="center"/></th><th><a href="/kflow_input"><%=array[0]%></th>
+            </tr>
+
+            <tr>
+                <th><img src="http://203.252.195.160:3000/images/CHEM.png" align="center"/></th><th><a href="/simulation2_input"><%=array[1]%></th>
+            </tr>
+
+            <tr>
+                <th><img src="http://203.252.195.160:3000/images/NANO.png" align="center"/></th><th><a href="/simulation3_input"><%=array[2]%></th>
+            </tr>
+
+        </table>
+
+    </form>
+    
+  </body>
+</html>

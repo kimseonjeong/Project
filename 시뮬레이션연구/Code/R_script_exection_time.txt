@@ -1,0 +1,79 @@
+# test: 1479건
+# 각 test case에 대해 오차율 및 Prediction time 측정
+# 1479건의 test case에 대해 평균 오차율 및 평균 시간 이득 측정
+# (http://www.ats.ucla.edu/stat/r/faq/timing_code.htm)
+#
+# < R Code >
+
+ptm <- proc.time()
+
+all_data = read.csv('D:/kflow_data_with_time.csv', sep=",", header=TRUE)
+attach(all_data)
+set.seed(123)
+all_data = all_data[sample(nrow(all_data)), ]
+train_data = all_data[1:6200, ]
+test_data = all_data[6201:nrow(all_data), ]
+
+library(locfit)
+model_Cl <- locfit(Cl ~ lp(thickness, Umach, AOA, RE, scale=TRUE, nn=0.005), data = train_data)
+model_Cdt <- locfit(Cdt ~ lp(thickness, Umach, AOA, RE, scale=TRUE, nn=0.005), data = train_data)
+model_Cdp <- locfit(Cdp ~ lp(thickness, Umach, AOA, RE, scale=TRUE, nn=0.005), data = train_data)
+model_Cdf <- locfit(Cdf ~ lp(thickness, Umach, AOA, RE, scale=TRUE, nn=0.005), data = train_data)
+model_Cm <- locfit(Cm ~ lp(thickness, Umach, AOA, RE, scale=TRUE, nn=0.005), data = train_data)
+
+saveRDS(model_Cl, "D:/model_Cl.rds")
+saveRDS(model_Cdt, "D:/model_Cdt.rds")
+saveRDS(model_Cdp, "D:/model_Cdp.rds")
+saveRDS(model_Cdf, "D:/model_Cdf.rds")
+saveRDS(model_Cm, "D:/model_Cm.rds")
+
+et = proc.time() - ptm 
+
+# et[1]: user time (19.55s)
+# et[2]: system time (0.21s)
+# et[3]: total elapsed time (20.09s)
+
+# -------------------------------------------------------------------------------------------------
+
+predicted_Cl = c(1:nrow(test_data))
+predicted_Cdt = c(1:nrow(test_data))
+predicted_Cdp = c(1:nrow(test_data))
+predicted_Cdf = c(1:nrow(test_data))
+predicted_Cm = c(1:nrow(test_data))
+cpu_time = c(1:nrow(test_data))
+total_time = c(1:nrow(test_data))
+
+for (i in 1:nrow(test_data)) {
+    start_time = proc.time()
+
+    library(locfit)
+    all_data = read.csv('D:/kflow_data_with_time.csv', sep=",", header=TRUE)
+
+    model_Cl<-readRDS("D:/model_Cl.rds")
+    model_Cdt<-readRDS("D:/model_Cdt.rds")
+    model_Cdp<-readRDS("D:/model_Cdp.rds")
+    model_Cdf<-readRDS("D:/model_Cdf.rds")
+    model_Cm<-readRDS("D:/model_Cm.rds")
+
+    predicted_Cl[i] = predict(model_Cl, newdata = test_data[i,])
+    predicted_Cdt[i] = predict(model_Cdt, newdata = test_data[i,])
+    predicted_Cdp[i] = predict(model_Cdp, newdata = test_data[i,])
+    predicted_Cdf[i] = predict(model_Cdf, newdata = test_data[i,])
+    predicted_Cm[i] = predict(model_Cm, newdata = test_data[i,])
+
+    elapsed_time = proc.time() - start_time 
+    cpu_time[i] = elapsed_time[1]
+    total_time[i] = elapsed_time[3]
+}
+
+results = cbind(test_data, predicted_Cl, predicted_Cdt, predicted_Cdp, predicted_Cdf, predicted_Cm, cpu_time, total_time)
+write.csv(results, 'D:/results.csv')
+
+# -------------------------------------------------------------------------------------------------
+
+cdt_errors = abs((test_data$Cdt - predicted_Cdt)/test_data$Cdt*100)
+cdp_errors = abs((test_data$Cdp - predicted_Cdp)/test_data$Cdp*100)
+cdf_errors = abs((test_data$Cdf - predicted_Cdf)/test_data$Cdf*100)
+cm_errors = abs((test_data$Cm - predicted_Cm)/test_data$Cm*100)
+
+

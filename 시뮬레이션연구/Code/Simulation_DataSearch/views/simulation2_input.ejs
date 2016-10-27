@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+   <title><%= title %></title>
+
+   <meta charset='utf-8'>
+
+   <link rel='stylesheet' href='/stylesheets/style.css' />
+
+   <script src="/javascripts/jquery-2.2.3.min.js"></script>
+
+   </head>
+
+<body>
+
+  <img src="https://www.edison.re.kr/image/layout_set_logo?img_id=141510&t=1476078930913" /><p>
+
+   <h1>[<%=name%>] <%= title %></h1>
+
+   <font color = "red">*부분은 필수 입력항목입니다</font> <p>
+
+   <form id="simulation2_input" action="/simulation2_output" method="post" onClick = "onbtnSearch()" onSubmit = "onWriteSubmit()" >
+
+   <table>   
+   	<% 
+   	var item = new Array();
+   	for(var i=0; i<items.length; i++){
+   		item[i] = items[i];
+    }
+    %>
+
+    <% for(var i=0; i<items.length; i++){
+    	%><tr>
+            <th><font color = "red">*</font><%=items[i]%></th>
+            <td><input type="text" name="<%=item[i]%>" id="<%=item[i]%>" size="30" maxLength="20" required></td>
+        </tr><% 
+    }%>
+
+      <tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr><tr>          </tr>
+         <tr>
+
+            <td colspan="3">
+
+               <div style="text-align:right;">
+
+                <input type="button" id="btndownload" name="download" value="모든 데이터 CSV 파일로 내려받기" onClick="location.href='/download?path=<%=filename%>'">
+
+               <input type="submit" id="btnSearch" name="search" value="수행" onClick = "onbtnSearch();" > 
+
+               <input type="reset" name="cancel" value="취소" onClick="javascript:history.back(-1)">
+
+               </div>
+
+            </td>
+
+         </tr>
+
+      
+   <script>
+   function onBtnSearch()
+   {
+   	$("#btnSearch").click(function() {
+   		console.log("submit");
+   		$("#simulation2_output").submit();
+   	});
+   }
+
+   </script>
+
+</body>
+
+</html>
