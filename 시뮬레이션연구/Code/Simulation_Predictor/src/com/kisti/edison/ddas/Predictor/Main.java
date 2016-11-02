@@ -1,56 +1,71 @@
+package com.kisti.edison.ddas.Predictor;
+
 import java.io.*;
+
+/** This class is for predicting the simulation results.
+ * 
+ *  If user has already Cl.rds file then, executes interaction3.R
+ *  
+ *  Otherwise, executes interaction1.R
+ * 
+ * @author DKELab in Sookmyung Women's University
+ *
+ */
 
 public class Main {
 
 	public static void main(String[] args) {
 		try {
 			
-			//file
+			//Find Cl modeling file
 			File f = new File("C:/Coding/Simulation_DataSearch/Cl.rds");
 			
-			//dirpath string
+			//Make a directory path variable
 			String dirPath;
 			
-			//file exist
-			//interaction3.r execute
-			//file no exist
-			//interaction1.r execute
+			//If Cl modeling file exists,
+			//then executes interaction3.R
+			//Otherwise,
+			//executes interaction1.R
 			
 			if(f.exists())
 				dirPath = "./interaction3.R";
 			else
 				dirPath = "./interaction1.R";
 			
-			//stringbuffer cmd execute
+			//Make a variable for executing command line
 			StringBuffer cmd = new StringBuffer();
 
-			//Rscript execute
+			//Append to command line for executing R-script file
 			cmd.append("Rscript");
 			cmd.append(" ");
 			
-			//file path
+			//Append to command line for file path
 			cmd.append(dirPath);
 			
-			//cmd execute
+			//Make a process object to execute command line
+			//And, execute command line
+			
 			Process proc = Runtime.getRuntime().exec(cmd.toString());
 			proc.waitFor();
 			
-			//rscript input
+			//If r-script make an error, print the cause.
+			
 			if (proc.exitValue() != 0) {
 				
-				//error exist
+				//Print the cause of an error
 				BufferedReader err = new BufferedReader(new InputStreamReader(
 						proc.getErrorStream()));
 				
 				while (err.ready())
 					System.out.println(err.readLine());
 				
-				//error close
+				//Close the process printing the error
 				err.close();
 				
 			} else {
 				
-				//output exist
+				//If r-script make a result, print the result of r-script
 				BufferedReader out = new BufferedReader(new InputStreamReader(
 						proc.getInputStream()));
 				
@@ -58,7 +73,7 @@ public class Main {
 				while (out.ready())
 					System.out.println(out.readLine());
 				
-				//close
+				//Close the process printing the result
 				out.close();
 
 				/*try {
@@ -77,6 +92,7 @@ public class Main {
 				
 			}
 			
+			//Destroy the process
 			proc.destroy();
 			
 		} catch (Exception e) {
