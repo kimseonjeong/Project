@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <ImageView
+                android:id="@+id/imageView_predict_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:src="@drawable/game_1"/>
+
+            <TextView
+                android:id="@+id/textView_predict_name_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="T1"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/textView_predict_record_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="57전 31승 26패"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/textView_predict_odds_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="승률72%"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/button_predict_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.5"
+                android:background="@drawable/cheer_button_round"
+                android:textColor="@color/cheer_text_select"
+                android:text="베팅하기"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <View style="@style/VerticalDivider"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <ImageView
+                android:id="@+id/imageView_predict_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:src="@drawable/game_2"/>
+
+            <TextView
+                android:id="@+id/textView_predict_name_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="SBENU"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/textView_predict_record_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="57전 31승 26패"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/textView_predict_odds_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="승률72%"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/button_predict_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.5"
+                android:background="@drawable/cheer_button_round"
+                android:textColor="@color/cheer_text_select"
+                android:text="베팅하기"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"/>
+
+    </LinearLayout>
+
+    <View style="@style/HorizontalDivider"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="실시간 베팅 현황"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/textView_predict_percent_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="68%"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:background="@drawable/rounded_shape">
+
+            <ProgressBar
+                android:id="@+id/progressBar_predict"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:progress="50"
+                android:max="100"
+                style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+                android:progressDrawable="@drawable/custom_progress_bar_horizontal"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/textView_predict_percent_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="68%"
+            android:gravity="center"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <View style="@style/HorizontalDivider"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:text="이전 게임 주요 챔피언"
+        android:gravity="center" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+</LinearLayout>

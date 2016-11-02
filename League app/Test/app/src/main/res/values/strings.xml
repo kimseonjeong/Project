@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Test</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main__list">Main_ListActivity</string>
+
+    <string name="home">HOME</string>
+    <string name="point">포인트 사용</string>
+    <string name="rank">랭킹</string>
+    <string name="news">News</string>
+    <string name="board">통합 게시판</string>
+    <string name="lol">LOL 한줄 댓글</string>
+    <string name="stone">하스스톤 한줄 댓글</string>
+    <string name="star">스타2 한줄 댓글</string>
+    <string name="hero">히어로즈 한줄 댓글</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string-array name="navi_list">
+        <item>HOME</item>
+        <item>포인트 사용</item>
+        <item>랭킹</item>
+        <item>News</item>
+        <item>통합 게시판</item>
+        <item>LOL 한줄 댓글</item>
+        <item>하스스톤 한줄 댓글</item>
+        <item>스타2 한줄 댓글</item>
+        <item>히어로즈 한줄 댓글</item>
+    </string-array>
+</resources>

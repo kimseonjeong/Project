@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/textView_drawer_name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="9"
+                    android:gravity="left|center_vertical"
+                    android:text="홍길동"/>
+
+                <ImageView
+                    android:id="@+id/imageView_drawer_revise"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_edit"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/textView_drawer_email"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:text="hong3@naver.com"/>
+
+            </LinearLayout>
+
+
+            <View
+                style="@style/HorizontalDivider"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:gravity="left|center_vertical"
+                    android:text="보유포인트"/>
+
+                <TextView
+                    android:id="@+id/textView_drawer_point"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="left|center_vertical"
+                    android:text="28,930점"
+                    android:textSize="17sp"
+                    android:textColor="@color/yellow"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:gravity="left|center_vertical"
+                    android:text="연속 콤보"/>
+
+                <TextView
+                    android:id="@+id/textView_drawer_combo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="left|center_vertical"
+                    android:text="8콤보"
+                    android:textSize="17sp"
+                    android:textColor="@color/yellow"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:gravity="left|center_vertical"
+                    android:text="내 랭킹"/>
+
+                <TextView
+                    android:id="@+id/textView_drawer_ranking"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="left|center_vertical"
+                    android:text="37위"
+                    android:textSize="17sp"
+                    android:textColor="@color/yellow"/>
+
+            </LinearLayout>
+
+
+            <View
+                style="@style/HorizontalDivider"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <ListView
+                android:id="@+id/listView_drawer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:listSelector="@drawable/item_selector"
+                android:choiceMode="singleChoice"
+                android:layout_weight="8" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</FrameLayout>
